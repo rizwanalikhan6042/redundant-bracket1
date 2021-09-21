@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+  using namespace std;
+ 
+  int main()
+  {
+    
+    //write your code here
+    string str;
+    cin>>str;stack <char> st;
+    char p;int n8=100000;
+    int count=0;bool flag=false;
+    for(int i=0;i<str.length();i++){
+      if(str[i]=='('){
+      st.push(str[i]);}
+      else if(str[i]=='+'||str[i]=='-'||str[i]=='*'||str[i]=='/'){
+      st.push(str[i]);}
+      else if(str[i]==')'){
+        if(st.top()=='('){
+          flag=true;
+        }
+        
+        while(st.top()=='+'||st.top()=='-'||st.top()=='*'||st.top()=='/'){
+          st.pop();
+        }
+        st.pop();
+      }
+      
+    }
+    cout<<flag;
+    return 0;
+  }
+  
